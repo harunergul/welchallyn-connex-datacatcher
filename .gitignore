@@ -1,0 +1,5 @@
+#eclipse related ignores
+.classpath
+.project
+.settings/**
+target/**
