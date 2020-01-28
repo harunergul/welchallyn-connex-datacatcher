@@ -1,6 +1,5 @@
 package com.erc.app.welchallyn.entities;
 
-
 import java.io.Serializable;
 
 import javax.persistence.Transient;
@@ -16,49 +15,49 @@ import javax.xml.bind.annotation.XmlType;
  * @note
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name="InsertPatientVitals", namespace = "http://tempuri.org/")
+@XmlRootElement(name = "InsertPatientVitals", namespace = "http://tempuri.org/")
 @XmlType(name = "InsertPatientVitals", propOrder = { "insertDateTime", "uniquePatientId", "patientName",
 		"patientLastName", "patientSecondLastName", "patientRoom", "patientBed", "deviceLocationId", "clinicianID",
 		"clinicianID2", "clinicianFirstName", "clinicianLastName", "temperature", "temperatureMode", "heartRate", "so2",
 		"diastolic", "systolic", "respiratoryRate", "patientHeight", "patientWeight", "patientBMI", "patientPain",
 		"o2FlowRate", "o2Concentration", "o2Method", "o2Location", "nibppatientposition", "nibpcuffsize",
-		"nibpcuffsite", "deviceID", "deviceModel","customData" })
+		"nibpcuffsite", "deviceID", "deviceModel", "customData" })
 
 public class PatientVitalSignDTO implements Serializable {
 	private static final long serialVersionUID = -3122933111998175122L;
-	private String insertDateTime;
-	private String uniquePatientId;
-	private String patientName;
-	private String patientLastName;
-	private String patientSecondLastName;
-	private String patientRoom;
-	private String patientBed;
-	private String deviceLocationId;
-	private String clinicianID;
-	private String clinicianID2;
-	private String clinicianFirstName;
-	private String clinicianLastName;
-	private String temperature;
-	private String temperatureMode;
-	private String heartRate;
-	private String so2;
-	private String diastolic;
-	private String systolic;
-	private String respiratoryRate;
-	private String patientHeight;
-	private String patientWeight;
-	private String patientBMI;
-	private String patientPain;
-	private String o2FlowRate;
-	private String o2Concentration;
-	private String o2Method;
-	private String o2Location;
-	private String nibppatientposition;
-	private String nibpcuffsize;
-	private String nibpcuffsite;
-	private String deviceID;
-	private String deviceModel;
-	
+	private String insertDateTime = "";
+	private String uniquePatientId = "";
+	private String patientName = "";
+	private String patientLastName = "";
+	private String patientSecondLastName = "";
+	private String patientRoom = "";
+	private String patientBed = "";
+	private String deviceLocationId = "";
+	private String clinicianID = "";
+	private String clinicianID2 = "";
+	private String clinicianFirstName = "";
+	private String clinicianLastName = "";
+	private String temperature = "";
+	private String temperatureMode = "";
+	private String heartRate = "";
+	private String so2 = "";
+	private String diastolic = "";
+	private String systolic = "";
+	private String respiratoryRate = "";
+	private String patientHeight = "";
+	private String patientWeight = "";
+	private String patientBMI = "";
+	private String patientPain = "";
+	private String o2FlowRate = "";
+	private String o2Concentration = "";
+	private String o2Method = "";
+	private String o2Location = "";
+	private String nibppatientposition = "";
+	private String nibpcuffsize = "";
+	private String nibpcuffsite = "";
+	private String deviceID = "";
+	private String deviceModel = "";
+
 	@Transient
 	private CustomData customData;
 
