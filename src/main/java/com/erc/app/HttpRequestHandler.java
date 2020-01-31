@@ -3,19 +3,25 @@ package com.erc.app;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.Socket;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.StringTokenizer;
+import java.util.UUID;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
@@ -84,9 +90,12 @@ public class HttpRequestHandler implements Runnable{
 			
 			try {
 				sendPost(requestString.toString());
+				writeXMLToFile(requestString.toString());
 			} catch (Exception e) {
  				e.printStackTrace();
 			}
+			
+//			writeXMLToFile(requestString.toString());
 			
 			
 			
@@ -180,8 +189,38 @@ public class HttpRequestHandler implements Runnable{
 				System.out.println("Connection closed.\n");
 			}
 		}
+	}
+
+	public static void writeXMLToFile(String request) throws IOException {
+ 		Date requestDate = new Date();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat dateTime = new SimpleDateFormat("hh_mm__");
+		String folderName = dateFormat.format(requestDate);
+		String path = "";
+		path = System.getenv("APPDATA") + File.separator + "Avicenna-welchallyn-backup";
+		File fPath = new File(path);
+		if (!fPath.isDirectory()) {
+			if (!fPath.mkdirs()) {
+				System.out.printf("Unable to create the folder %s, check your privileges.", path);
+			}
+		}
 		
+		path = path+ File.separator+ folderName;
+		System.out.println(path);
 		
+		fPath = new File(path);
+		if (!fPath.isDirectory()) {
+			if (!fPath.mkdirs()) {
+				System.out.printf("Unable to create the folder %s, check your privileges.", path);
+			}
+		}
+		
+		UUID uuid = UUID.randomUUID();
+		String uuid_string = uuid.toString();
+		String fileName = dateTime.format(requestDate)+uuid_string.replace("-", "");
+		path = path+File.separator+fileName;
+		Files.write( Paths.get(fileName+".txt"), request.getBytes());
+		Files.write( Paths.get(fileName+".xml"), request.getBytes());
 	}
 	
 	private byte[] readFileData(File file, int fileLength) throws IOException {

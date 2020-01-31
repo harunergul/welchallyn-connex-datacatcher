@@ -1,7 +1,11 @@
 package com.erc.app;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.UUID;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -18,7 +22,7 @@ public class XmlConverter {
 			"<soap:Body>\r\n" + 
 			"<InsertPatientVitals xmlns=\"http://tempuri.org/\">\r\n" + 
 			"<insertDateTime>20200128104538</insertDateTime>\r\n" + 
-			"<uniquePatientId></uniquePatientId>\r\n" + 
+			"<uniquePatientId>test12254</uniquePatientId>\r\n" + 
 			"<patientName></patientName>\r\n" + 
 			"<patientLastName></patientLastName>\r\n" + 
 			"<patientSecondLastName></patientSecondLastName>\r\n" + 
@@ -69,6 +73,7 @@ public class XmlConverter {
 			SimpleXml simpleXML = new SimpleXml();
 			Element element = simpleXML.fromXml(converter.getTestString());
 			System.out.println(simpleXML.domToXml(element.children.get(0).children.get(0)));
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

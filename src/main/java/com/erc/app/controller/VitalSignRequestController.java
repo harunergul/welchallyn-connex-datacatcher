@@ -43,7 +43,8 @@ public class VitalSignRequestController {
 			calendar.setTimeInMillis(Long.parseLong(dto.getInsertDateTime()));
 			observationDTO.setInsertDateTime(calendar.getTime());
 		}
-
+		
+		observationDTO.setUniquePatientId(dto.getUniquePatientId());
 		observationDTO.setPatientName(dto.getPatientName());
 		observationDTO.setPatientLastName(dto.getPatientLastName());
 		observationDTO.setPatientSecondLastName(dto.getPatientSecondLastName());
@@ -79,7 +80,8 @@ public class VitalSignRequestController {
 		observationDTO.setNibpcuffsite(dto.getNibpcuffsite());
 		observationDTO.setDeviceID(dto.getDeviceID());
 		observationDTO.setDeviceModel(dto.getDeviceModel());
-
+		observationDTO.setStatus("0");
+		
 		repository.save(observationDTO);
 		return true;
 	}

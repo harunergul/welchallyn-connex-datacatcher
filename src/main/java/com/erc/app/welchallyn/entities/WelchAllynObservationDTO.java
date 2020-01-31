@@ -25,102 +25,105 @@ public class WelchAllynObservationDTO {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqGen")
 	@Column(name = "WELCHALLYNOBSERVATIONID")
 	private Long welchallynObservationId;
-	
+
 	@Column(name = "INSERTDATETIME")
 	private Date insertDateTime;
-	
+
 	@Column(name = "UNIQUEPATIENTID")
-	private Long uniquePatientId;
-	
+	private String uniquePatientId;
+
 	@Column(name = "PATIENTNAME")
 	private String patientName;
-	
+
 	@Column(name = "PATIENTLASTNAME")
 	private String patientLastName;
-	
+
 	@Column(name = "PATIENTSECONDLASTNAME")
 	private String patientSecondLastName;
-	
+
 	@Column(name = "PATIENTROOM")
 	private String patientRoom;
-	
+
 	@Column(name = "PATIENTBED")
 	private String patientBed;
-	
+
 	@Column(name = "DEVICELOCATIONID")
 	private String deviceLocationId;
-	
+
 	@Column(name = "CLINICIANID")
 	private Long clinicianID;
-	
+
 	@Column(name = "CLINICIANID2")
 	private Long clinicianID2;
-	
+
 	@Column(name = "CLINICIANFIRSTNAME")
 	private String clinicianFirstName;
-	
+
 	@Column(name = "CLINICIANLASTNAME")
 	private String clinicianLastName;
-	
+
 	@Column(name = "TEMPERATURE")
 	private String temperature;
-	
+
 	@Column(name = "TEMPERATUREMODE")
 	private String temperatureMode;
-	
+
 	@Column(name = "HEARTRATE")
 	private String heartRate;
-	
+
 	@Column(name = "SO2")
 	private String so2;
-	
+
 	@Column(name = "DIASTOLIC")
 	private String diastolic;
-	
+
 	@Column(name = "SYSTOLIC")
 	private String systolic;
-	
+
 	@Column(name = "RESPIRATORYRATE")
 	private String respiratoryRate;
-	
+
 	@Column(name = "PATIENTHEIGHT")
 	private String patientHeight;
-	
+
 	@Column(name = "PATIENTWEIGHT")
 	private String patientWeight;
-	
+
 	@Column(name = "PATIENTBMI")
 	private String patientBMI;
-	
+
 	@Column(name = "PATIENTPAIN")
 	private String patientPain;
-	
+
 	@Column(name = "O2FLOWRATE")
 	private String o2FlowRate;
-	
+
 	@Column(name = "O2CONCENTRATION")
 	private String o2Concentration;
-	
+
 	@Column(name = "O2METHOD")
 	private String o2Method;
-	
+
 	@Column(name = "O2LOCATION")
 	private String o2Location;
-	
+
 	@Column(name = "NIBPPATIENTPOSITION")
 	private String nibppatientposition;
-	
+
 	@Column(name = "NIBPCUFFSIZE")
 	private String nibpcuffsize;
-	
+
 	@Column(name = "NIBPCUFFSITE")
 	private String nibpcuffsite;
-	
+
 	@Column(name = "DEVICEID")
 	private String deviceID;
-	
+
 	@Column(name = "DEVICEMODEL")
 	private String deviceModel;
+
+	@Column(name = "STATUS")
+	private String status;
 
 	@Transient
 	private CustomData customData;
@@ -133,11 +136,11 @@ public class WelchAllynObservationDTO {
 		this.insertDateTime = insertDateTime;
 	}
 
-	public Long getUniquePatientId() {
+	public String getUniquePatientId() {
 		return uniquePatientId;
 	}
 
-	public void setUniquePatientId(Long uniquePatientId) {
+	public void setUniquePatientId(String uniquePatientId) {
 		this.uniquePatientId = uniquePatientId;
 	}
 
@@ -395,6 +398,14 @@ public class WelchAllynObservationDTO {
 
 	public void setTemperature(String temperature) {
 		this.temperature = temperature;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 }
