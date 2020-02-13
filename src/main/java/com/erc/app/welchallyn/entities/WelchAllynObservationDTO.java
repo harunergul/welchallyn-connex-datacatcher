@@ -18,7 +18,7 @@ import javax.persistence.Transient;
  * @note
  */
 @Entity
-@SequenceGenerator(name = "seqGen", sequenceName = "BAYEK.seqbar", initialValue = 5, allocationSize = 10)
+@SequenceGenerator(name = "seqGen", sequenceName = "BAYEK.seqbar", initialValue = 5, allocationSize = 1)
 @Table(name = "WELCHALLYNOBSERVATION")
 public class WelchAllynObservationDTO {
 	@Id
